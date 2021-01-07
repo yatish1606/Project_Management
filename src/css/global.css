@@ -1,0 +1,116 @@
+html {
+    margin: 0;
+    padding: 0;
+    font-family: wh-med;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: wh-med;
+    background-color: red;
+}
+
+body * {
+    transition: 0.3s ease-in-out;
+}
+
+@font-face {
+    font-family: wh-xbold;
+    src: url('../fonts/Wavehaus-158ExtraBold.otf');
+}
+@font-face {
+    font-family: wh-bold;
+    src: url('../fonts/Wavehaus-128Bold.otf');
+}
+@font-face {
+    font-family: wh-sbold;
+    src: url('../fonts/Wavehaus-95SemiBold.otf');
+}
+@font-face {
+    font-family: wh-med;
+    src: url('../fonts/Wavehaus-66Book.otf');
+}
+@font-face {
+    font-family: gs-bold;
+    src: url('../fonts/GandhiSans-Bold.otf');
+}
+@font-face {
+    font-family: gs-med;
+    src: url('../fonts/GandhiSans-Regular.otf');
+}
+
+.darktheme {
+    background-color: darkslategrey !important;
+}
+
+.main-container {
+    height: calc(100vh - 60px);
+    width: calc(100vw - 90px);
+    margin-left: 90px;
+    margin-top: 60px;
+    background-color: #eee;
+    z-index: 99;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.t0 {
+    font-family: gs-bold;
+    font-size: 40px;
+    letter-spacing: 0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.t1 {
+    font-family: gs-bold;
+    font-size: 32px;
+    letter-spacing: 0.1px;
+    margin: 0;
+    padding: 0;
+}
+
+.t2 {
+    font-family: wh-bold;
+    font-size: 25px;
+    letter-spacing: 0px;
+    margin: 0;
+    padding: 0;
+}
+
+.t3 {
+    font-family: wh-bold;
+    font-size: 22px;
+    letter-spacing: 0px;
+    margin: 0;
+    padding: 0;
+}
+
+.t5 {
+    font-family: wh-sbold;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    margin: 0px 0;
+    padding: 0;
+    line-height: 18px;
+}
+
+.t6 {
+    font-family: wh-med;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    margin: 0px 0;
+    padding: 0;
+    line-height: 18px;
+}
+
+.tcgrey {
+   color: #969696; 
+}

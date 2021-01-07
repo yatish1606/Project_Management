@@ -1,0 +1,52 @@
+.project-top-block {
+    width: calc(100% - 40px);
+    padding: 0 20px;
+    height: 180px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.project-top-block-main {
+    width: 100%;
+    height: 140px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.project-pie {
+    width: 110px;
+    height: 110px;
+    padding-top: 20px;
+}
+
+/* .CircularProgressbar .CircularProgressbar-path {
+    stroke: url(#idCSS);
+} */
+
+.project-title-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+.project-main {
+    width: calc(100% - 20px);
+    padding: 0 0px 0 20px;
+    height: 380px;
+    background-color: green;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.project-discussion-block {
+    width: 30%;
+    background-color: blue;
+    height: calc(100vh - 180px - 60px);
+}
