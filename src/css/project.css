@@ -1,17 +1,18 @@
 .project-top-block {
     width: calc(100% - 40px);
     padding: 0 20px;
-    height: 180px;
+    height: 150px;
     background-color: white;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 20px;
+    padding: 20px 30px;
+    border-bottom: 2px solid #eee;
 }
 
 .project-top-block-main {
     width: 100%;
-    height: 140px;
+    height: 110px;
     background-color: white;
     display: flex;
     flex-direction: row;
@@ -19,8 +20,8 @@
 }
 
 .project-pie {
-    width: 110px;
-    height: 110px;
+    width: 90px;
+    height: 90px;
     padding-top: 20px;
 }
 
@@ -39,14 +40,30 @@
     width: calc(100% - 20px);
     padding: 0 0px 0 20px;
     height: 380px;
-    background-color: green;
+    background-color: transparent;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
 .project-discussion-block {
-    width: 30%;
-    background-color: blue;
-    height: calc(100vh - 180px - 60px);
+    width: 40%;
+    background-color: inherit;
+    height: calc(100vh - 150px - 60px);
+    transition: .3s ease-in-out;
+    background-color: #fff;
+    border-left: 2px solid #eee;
+}
+
+.isClosed {
+    width: 0;
+    transition: 0.3s ease-in-out;
+}
+
+.project-main-content {
+    width: calc(100% - 40px);
+    margin-right: 20px;
+    background-color: darkorange;
+    height: 100%;
+    transition: .3s ease-in-out;
 }

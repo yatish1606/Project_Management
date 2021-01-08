@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { CircularProgressbar, CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import {FiX} from 'react-icons/fi'
 
 import '../css/global.css'
 import '../css/project.css'
+import { IconButton } from './Common';
 
 const ProgressProvider = ({ valueStart, valueEnd, children }) => {
     const [value, setValue] = React.useState(valueStart)
@@ -37,6 +39,7 @@ class GradientSVG extends React.Component {
 
 const Project = () => {
 
+    const [openDiscussionPanel, setOpenDiscussionPanel] = useState(false)
 
 
     return (
@@ -55,7 +58,7 @@ const Project = () => {
                                         value={value} 
                                         circleRatio={0.7} 
                                         styles={buildStyles({
-                                            rotation: 0.5 + (1 - 69 / 100) / 2,
+                                            rotation: 0.5 + (1 - 70 / 100) / 2,
                                             pathTransitionDuration: 1.5,
                                             textColor: "#151515",
                                             pathColor: "green",
@@ -79,17 +82,20 @@ const Project = () => {
                         </div>
                         <div>
                             options
+                            <button onClick={() => setOpenDiscussionPanel(!openDiscussionPanel)}>Open</button>
                         </div>
                     </div>
                 </div>
                 <div className="project-main">
-                    <p>uui</p>
-                    <div className="project-discussion-block">
-                        <div>
-                            <div>
-                                <p className="t3">Project Discussion</p>
-                                <p className="t5">Abigail Spencer, John Doe and 3 more</p>
+                    <div className="project-main-content">
+                    </div> 
+                    <div className={openDiscussionPanel ? "project-discussion-block" : "project-discussion-block isClosed"}>
+                        <div className="horizontal" style={{padding: '10px 15px', borderBottom: '2px solid #eee', height: 50}}>
+                            <div style={{display: openDiscussionPanel ? 'block' : 'none'}}>
+                                <p className="t4">Project Discussion</p>
+                                <p className="t6" style={{marginTop: 5}}>Abigail Spencer, John Doe and 3 more</p>
                             </div>
+                            <IconButton icon={<FiX size={20} color="#151515"/>} onClick={() => setOpenDiscussionPanel(false)} style={{display: openDiscussionPanel ? 'flex' : 'none'}}/>
                         </div>
                     </div>
                 </div>
