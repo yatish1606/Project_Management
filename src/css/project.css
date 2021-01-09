@@ -1,27 +1,30 @@
+@import './global.css';
+
 .project-top-block {
     width: calc(100% - 40px);
     padding: 0 20px;
     height: 150px;
-    background-color: white;
+    background-color: var(--background);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 20px 30px;
-    border-bottom: 2px solid #eee;
+    border-bottom: 2px solid var(--lg);
+    padding-bottom: 10px;
 }
 
 .project-top-block-main {
     width: 100%;
-    height: 110px;
-    background-color: white;
+    height: 120px;
+    background-color: var(--background);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
 .project-pie {
-    width: 90px;
-    height: 90px;
+    width: 110px;
+    height: 110px;
     padding-top: 20px;
 }
 
@@ -51,8 +54,8 @@
     background-color: inherit;
     height: calc(100vh - 150px - 60px);
     transition: .3s ease-in-out;
-    background-color: #fff;
-    border-left: 2px solid #eee;
+    background-color: var(--background);
+    border-left: 2px solid var(--lg);
 }
 
 .isClosed {

@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Sidebar from './components/Sidebar.jsx'
 import Project from './components/Project'
+import Home from './components/Home'
 
 
 const AppRouter = () => {
@@ -15,8 +16,9 @@ const AppRouter = () => {
 					
 					<div>
 					
-            <Route path="/" render={(props) => <Project {...props}/>}/>
-            <Route path="*" render={(props) => <Sidebar {...props}/>}/>
+					<Route path="/dashboard" exact render={(props) => <Home {...props}/>}/>
+					<Route path="/project" exact render={(props) => <Project {...props}/>}/>
+					<Route path="*" render={(props) => <Sidebar {...props}/>}/>
 
 					</div>
 				</Switch>

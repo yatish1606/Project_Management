@@ -6,15 +6,7 @@ import {FiX} from 'react-icons/fi'
 import '../css/global.css'
 import '../css/project.css'
 import { IconButton } from './Common';
-
-const ProgressProvider = ({ valueStart, valueEnd, children }) => {
-    const [value, setValue] = React.useState(valueStart)
-    React.useEffect(() => {
-      setValue(valueEnd)
-    }, [valueEnd])
-  
-    return children(value)
-}
+import {ProgressProvider} from './Common'
 
 class GradientSVG extends React.Component {
     render() {
@@ -46,7 +38,7 @@ const Project = () => {
         <React.Fragment>
             <div className="main-container">
                 <div className="project-top-block">
-                    <p className="t5" style={{marginTop:10}}>
+                    <p className="t5 sub" style={{marginTop:10}}>
                         Projects  >  Project Management
                     </p>
                     <div className="project-top-block-main">
@@ -77,7 +69,7 @@ const Project = () => {
                                 </ProgressProvider>
                             </div>
                             <div className="project-title-block">
-                                <p className="t1">Project Management</p>
+                                <p className="t1 title">Project Management</p>
                             </div>
                         </div>
                         <div>
@@ -92,8 +84,8 @@ const Project = () => {
                     <div className={openDiscussionPanel ? "project-discussion-block" : "project-discussion-block isClosed"}>
                         <div className="horizontal" style={{padding: '10px 15px', borderBottom: '2px solid #eee', height: 50}}>
                             <div style={{display: openDiscussionPanel ? 'block' : 'none'}}>
-                                <p className="t4">Project Discussion</p>
-                                <p className="t6" style={{marginTop: 5}}>Abigail Spencer, John Doe and 3 more</p>
+                                <p className="t4 title">Project Discussion</p>
+                                <p className="t6 themeColor" style={{marginTop: 5}}>Abigail Spencer, John Doe and 3 more</p>
                             </div>
                             <IconButton icon={<FiX size={20} color="#151515"/>} onClick={() => setOpenDiscussionPanel(false)} style={{display: openDiscussionPanel ? 'flex' : 'none'}}/>
                         </div>

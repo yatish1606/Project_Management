@@ -1,3 +1,16 @@
+:root {
+    --background: #fff;
+    --lg: #f6f6f6;
+    --mg: #eee;
+    --dg: #d3d3d3;
+    --sub: #878787;
+    --title: #3C3C3C;
+    --primaryColor: #008EF6;
+    --danger: #E04800;
+    --darkPrimaryColor: #0080DE;
+    --primaryColorFaint: #008EF620;
+}
+
 html {
     margin: 0;
     padding: 0;
@@ -8,11 +21,15 @@ body {
     margin: 0;
     padding: 0;
     font-family: wh-med;
-    background-color: red;
+    background-color: var(--background);
 }
 
 body * {
     transition: 0.3s ease-in-out;
+}
+
+a {
+    text-decoration: none;
 }
 
 @font-face {
@@ -50,10 +67,15 @@ body * {
     /* flex-grow: 1; */
     margin-left: 90px;
     margin-top: 60px;
-    background-color: #eee;
+    background-color: var(--background);
     z-index: 99;
-    border-radius: 30px;
+    border-radius: 0px;
     overflow: hidden;
+}
+
+.main-container.isHome {
+    margin-top: 0;
+    height: 100vh;
 }
 
 .horizontal {
@@ -61,6 +83,66 @@ body * {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}
+
+.themeColor {
+    color: var(--primaryColor);
+}
+
+.title {
+    color: var(--title);
+}
+
+.sub {
+    color: var(--sub);
+}
+
+.background {
+    background-color: var(--background);
+}
+
+.backgroundlg {
+    background-color: var(--lg);
+}
+
+.backgroundmg {
+    background-color: var(--mg);
+}
+
+.backgrounddg {
+    background-color: var(--dg);
+}
+
+.backgroundPrimary {
+    background-color: #ababab;
+}
+
+.lg {
+    color: var(--lg);
+}
+
+.mg {
+    color: var(--mg);
+}
+
+.dg {
+    color: var(--dg);
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.danger {
+    color: var(--danger);
+}
+
+.dangerBG {
+    background-color: var(--danger);
+}
+
+.hover:hover {
+    background-color: var(--dg) !important;
 }
 
 .t0 {
@@ -90,7 +172,7 @@ body * {
 .t3 {
     font-family: wh-bold;
     font-size: 22px;
-    letter-spacing: 0px;
+    letter-spacing: 0.2px;
     margin: 0;
     padding: 0;
 }
@@ -98,7 +180,24 @@ body * {
 .t4 {
     font-family: wh-bold;
     font-size: 19px;
-    letter-spacing: 0px;
+    letter-spacing: 0.3px;
+    margin: 0;
+    padding: 0;
+}
+
+
+.t445 {
+    font-family: wh-bold;
+    font-size: 16.5px;
+    letter-spacing: 0.3px;
+    margin: 0;
+    padding: 0;
+}
+
+.t45 {
+    font-family: wh-sbold;
+    font-size: 15px;
+    letter-spacing: 0.3px;
     margin: 0;
     padding: 0;
 }
@@ -106,7 +205,16 @@ body * {
 .t5 {
     font-family: wh-sbold;
     font-size: 14px;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.5px;
+    margin: 0px 0;
+    padding: 0;
+    line-height: 18px;
+}
+
+.t55 {
+    font-family: wh-sbold;
+    font-size: 12.5px;
+    letter-spacing: 0.5px;
     margin: 0px 0;
     padding: 0;
     line-height: 18px;
@@ -115,7 +223,7 @@ body * {
 .t6 {
     font-family: wh-med;
     font-size: 12.5px;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
     margin: 0px 0;
     padding: 0;
     line-height: 18px;
@@ -145,5 +253,25 @@ body * {
     cursor: pointer;
 }
 .iconbutton:hover {
-    background-color: #eee;
+    background-color: var(--lg);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.button {
+    min-width: 20px;
+    height: 35px;
+    border-radius: 7px;
+    background-color: var(--primaryColor);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 14px;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: var(--darkPrimaryColor);
 }
