@@ -1,0 +1,13 @@
+<svg width="2800" height="2000" viewBox="0 0 2800 2000" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="2800" height="2000" fill="#EEEEEE"/>
+<rect width="1620" height="100" rx="50" transform="matrix(1 0 0 -1 127 368)" fill="#D3D3D3"/>
+<rect width="921" height="200" rx="70" transform="matrix(1 0 0 -1 1579 745)" fill="#D3D3D3"/>
+<rect width="921" height="200" rx="70" transform="matrix(1 0 0 -1 1579 1427)" fill="#D3D3D3"/>
+<rect width="921" height="200" rx="70" transform="matrix(1 0 0 -1 326 1100)" fill="#D3D3D3"/>
+<rect width="921" height="200" rx="70" transform="matrix(1 0 0 -1 326 1754)" fill="#D3D3D3"/>
+<rect x="1387" y="468" width="25" height="1345" rx="12.5" fill="#D3D3D3"/>
+<circle cx="1400" cy="645" r="50" fill="#008EF6"/>
+<circle cx="1400" cy="1000" r="50" fill="#008EF6"/>
+<circle cx="1400" cy="1327" r="50" fill="#008EF6"/>
+<circle cx="1400" cy="1654" r="50" fill="#008EF6"/>
+</svg>

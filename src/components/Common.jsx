@@ -12,11 +12,11 @@ export const IconButton = ({icon, onClick, style}) => {
     )
 }
 
-export const AppButton = ({title, hasIcon, icon, onClick, primary, secondary, style}) => {
+export const AppButton = ({title, hasIcon, icon, onClick, primary, secondary, style, disabled}) => {
     return (
-        <div className="button" style={style} onClick={onClick}>
+        <div className={secondary ? "button secondary" : 'button'} style={style} onClick={disabled ? null : onClick}>
             {hasIcon ? <div className="lg" style={{height:'100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>{icon}</div> : null}
-            <p className="t45 lg" style={{marginLeft: hasIcon ? 7 : 0}}>{title}</p>
+            <p className={secondary ? "t45 lg secondary-color" : 't45 lg'} style={{marginLeft: hasIcon ? 7 : 0, letterSpacing: 0.8, fontFamily:'wh-sbold'}}>{title}</p>
         </div>
     )
 }
@@ -74,6 +74,18 @@ export const UpcomingTaskCard = () => {
                     <p className="t55 danger">Due 23/4</p>
                 </div>
             </div>
+        </div>
+    )
+}
+
+export const CustomInput = ({placeholder, onChange, onFocus, onBlur, size, type, value}) => {
+    return (
+        <div style={{width:'100%', height:40, display: 'flex', flexDirection: 'row'}}>
+            <input
+                placeholder={placeholder}
+                onChange={onChange}
+                value={value}
+            />
         </div>
     )
 }

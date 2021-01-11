@@ -1,8 +1,10 @@
 :root {
     --background: #fff;
+    --vlg: #fafafa;
     --lg: #f6f6f6;
     --mg: #eee;
     --dg: #d3d3d3;
+    --vdg: #ababab;
     --sub: #878787;
     --title: #3C3C3C;
     --primaryColor: #008EF6;
@@ -30,6 +32,37 @@ body * {
 
 a {
     text-decoration: none;
+}
+
+input, textarea {
+    border: none;
+    outline: none;
+    border: 2.5px solid var(--mg);
+    padding: 5px 15px;
+    width: calc(100% - 30px);
+    font-size: 17px;
+    font-family: wh-sbold;
+    color: var(--title);
+    letter-spacing: 0.3px;
+    border-radius: 8px;
+    height: 35px;
+    cursor: pointer;
+    background-color: var(--vlg);
+    /* box-sizing: border-box; */
+}
+
+textarea {
+    padding: 15px !important;
+}
+
+input::placeholder, textarea::placeholder {
+    font-family: wh-sbold;
+    font-size: 17px;
+    color: var(--vdg);
+}
+
+input:focus , textarea:focus{
+    border: 2.5px solid var(--primaryColor);
 }
 
 @font-face {
@@ -61,12 +94,21 @@ a {
     background-color: darkslategrey !important;
 }
 
+.rotate {
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
 .main-container {
-    height: calc(100vh - 60px);
+    height: 100vh;
     width: calc(100vw - 90px);
     /* flex-grow: 1; */
     margin-left: 90px;
-    margin-top: 60px;
+    /* margin-top: 60px; */
     background-color: var(--background);
     z-index: 99;
     border-radius: 0px;
@@ -143,6 +185,11 @@ a {
 
 .hover:hover {
     background-color: var(--dg) !important;
+}
+
+.hovercolor:hover {
+    color: var(--primaryColor);
+    transition: 0.1s ease-in-out;
 }
 
 .t0 {
@@ -275,3 +322,24 @@ a {
 .button:hover {
     background-color: var(--darkPrimaryColor);
 }
+
+.secondary {
+    background-color: inherit !important;
+}
+.secondary-color {
+    color: var(--primaryColor);
+}
+
+.faintbg {
+    background-color: #008EF614 !important;
+    border-color: #008EF600;
+    letter-spacing: 0.5px;
+}
+
+.switch-wrapper {
+    position: relative;
+  }
+   
+  .switch-wrapper > div {
+    position: absolute;
+  }

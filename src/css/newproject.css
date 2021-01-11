@@ -1,0 +1,165 @@
+.swiper-container-custom {
+    width: calc(100% - 120px); 
+    height: calc(100vh - 160px);
+    margin-left: 90px;
+    margin-top: 70px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-page {
+    width: 100%;
+    height: calc(100vh - 160px);
+    background-color: green;
+}
+
+.swiper-slide {
+    height: calc(100vh - 160px);
+    background-color: transparent;
+    margin-bottom: 20px;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+    padding: 20px 10px;
+    position: relative;
+    /* border: 1px solid black; */
+}
+
+.pagination-div {
+    width: 60px;
+    min-height: 100px;
+    background-color: transparent;
+    position: absolute;
+    left: 110px;
+    top: calc(100vh * 0.23);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pagination-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    background-color: var(--mg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--sub);
+}
+
+.pagination-circle-active {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    background-color: var(--primaryColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--lg);
+}
+
+.pagination-line {
+    width: 5px;
+    height: 70px;
+    background-color: var(--mg);
+}
+
+.pagination-line-active {
+    width: 5px;
+    height: 70px;
+    background-color: var(--primaryColor);
+}
+
+.react-datepicker__current-month, .react-datepicker-time__header, .react-datepicker-year-header {
+    font-family: wh-bold;
+    color: var(--title) !important;
+    font-size: 15px !important;
+    margin-top: 20px;
+}
+
+.react-datepicker__header:not(.react-datepicker__header--has-time-select) {
+    background-color: var(--lg) !important;
+    border: none;
+    padding-top: 10px;
+    height: 60px;
+}
+
+.react-datepicker {
+    border: none !important;
+    box-shadow: 5px 5px 15px #00000012;
+}
+
+.react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle, .react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle::before {
+    display: none;
+}
+
+.react-datepicker-popper[data-placement^="top"] .react-datepicker__triangle, .react-datepicker__year-read-view--down-arrow, .react-datepicker__month-read-view--down-arrow, .react-datepicker__month-year-read-view--down-arrow, .react-datepicker-popper[data-placement^="top"] .react-datepicker__triangle::before, .react-datepicker__year-read-view--down-arrow::before, .react-datepicker__month-read-view--down-arrow::before, .react-datepicker__month-year-read-view--down-arrow::before {
+    display: none;
+}
+
+.react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name  {
+    font-family: wh-sbold;
+    font-size: 14px !important;
+    color: var(--sub) !important;
+    margin-top: 10px;
+}
+
+.react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--selected, .react-datepicker__year-text--in-selecting-range, .react-datepicker__year-text--in-range {
+    background-color: var(--primaryColor) !important;
+    color: var(--lg) !important;
+}
+.step-div {
+    width: 100px;
+    border-radius: 15px;
+    min-height: 130px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: var(--sub);
+}
+
+.step-div-image {
+    background-color: var(--lg);
+    width: 100%;
+    min-height: 100px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.step-div-image.splash {
+    background-color: var(--primaryColor) !important;
+}
+.splash {
+    color: var(--primaryColor) !important;
+}
+
+.arrow {
+    pointer-events: none;
+  }
+   
+  .arrow__path {
+    stroke: var(--dg);
+    stroke-width: 2px;
+    fill: transparent;
+    stroke-dasharray: 6 7;
+    stroke-linecap: round;
+  }
+   
+  .arrow__head line {
+    stroke: var(--dg);
+    stroke-width: 2px;
+    stroke-linecap: round;
+  }
+
+.arrow.splash {
+    /* stroke: var(--primaryColor) !important; */
+}

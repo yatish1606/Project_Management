@@ -12,6 +12,7 @@ import * as animationData from '../assets/computer.json'
 import '../css/global.css'
 import '../css/home.css'
 import { FiChevronDown, FiChevronRight, FiEdit3, FiPlus, FiShare2 } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 
 const StatsCard = ({count, n1, n2}) => {
     return (
@@ -42,7 +43,15 @@ const Home = () => {
                     
                 >
                 <p className="t2 title" style={{marginTop: 10}}>Dashboard</p>
-                <AppButton style={{position: 'absolute', top: 10, right: 40}} title="New Project" hasIcon icon={<FiPlus size={18}/>}/>
+                <Link to="/project/new">
+                    <AppButton 
+                        style={{position: 'absolute', top: 10, right: 40}} 
+                        title="New Project" 
+                        hasIcon 
+                        icon={<FiPlus 
+                        size={18}/>}
+                    />
+                </Link>
 
 
                 <div className="dashboard-info">

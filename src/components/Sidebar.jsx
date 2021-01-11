@@ -50,7 +50,7 @@ const Sidebar = () => {
 					})}
 				</div>
             </div>
-            <div className={GetCurrentPath() === '/dashboard' ? "navbar-container isHome" : 'navbar-container'}>
+            <div className={GetCurrentPath() === '/dashboard' ? "navbar-container isHome" : 'navbar-container'} style={{display: 'none'}}>
                 
 				<div style={{margin:'auto 10px'}}>
                     <IconButton icon={<FiSettings size={21}/>} />
