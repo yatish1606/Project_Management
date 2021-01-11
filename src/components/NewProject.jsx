@@ -367,50 +367,50 @@ const NewProject = ({history}) => {
                     
                         <div className="horizontal" style={{marginTop: 30, boxSizing:'border-box', padding:'20px 5%'}}>
                             
-                            <div style={{height:250, boxSizing:'border-box', width:'27%' ,padding:0, border: '2.5px solid', borderColor : templateType ==='simple' ? '#008EF6' : '#eee', borderRadius: 10, overflow:'hidden', display: 'flex', flexDirection: 'column', cursor:'pointer'}} onClick={() => setTemplateType('simple')}>
+                            <div className={templateType === 'simple' ? 'backgroundThemeColor' : ''} style={{height:250, boxSizing:'border-box', width:'27%' ,padding:0, border: '2.5px solid', borderColor : templateType ==='simple' ? '#008EF6' : '#eee', borderRadius: 10, overflow:'hidden', display: 'flex', flexDirection: 'column', cursor:'pointer'}} onClick={() => setTemplateType('simple')}>
                                 
                                 <div className="backgroundmg" style={{width:'100%', height: 200, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                                     <img src={simple} style={{objectFit:'contain', height: '100%'}}/>
                                 </div>
                                 <div className="horizontal" style={{justifyContent: 'flex-start', padding:'11px 20px'}}>
                                     {templateType ==='simple' ? 
-                                        <IoIosCheckmarkCircle size={24} className="themeColor" style={{cursor:'pointer'}}/>
+                                        <IoIosCheckmarkCircle size={24} className="lg" style={{cursor:'pointer'}}/>
                                         :
                                         <RiCheckboxBlankCircleLine size={24} className="dg" style={{cursor:'pointer'}} onClick={() => setTemplateType('simple')}/>
                                     }
-                                    <p className="t45 title" style={{fontFamily:'wh-bold', marginLeft: 10, marginBottom:3}}>simple view</p>
+                                    <p className={templateType ==='simple' ? "t45 lg" : 't45 title'} style={{fontFamily:'wh-bold', marginLeft: 10, marginBottom:3}}>simple view</p>
                                 </div>
                 
                             </div>
 
-                            <div style={{height:250, boxSizing:'border-box', width:'27%' ,padding:0, border: '2.5px solid', borderColor : templateType === 'agile' ? '#008EF6' : '#eee', borderRadius: 10, overflow:'hidden', display: 'flex', flexDirection: 'column', cursor:'pointer'}} onClick={() => setTemplateType('agile')}>
+                            <div className={templateType === 'agile' ? 'backgroundThemeColor' : ''} style={{height:250, boxSizing:'border-box', width:'27%' ,padding:0, border: '2.5px solid', borderColor : templateType === 'agile' ? '#008EF6' : '#eee', borderRadius: 10, overflow:'hidden', display: 'flex', flexDirection: 'column', cursor:'pointer'}} onClick={() => setTemplateType('agile')}>
                                 
                                 <div className="backgroundmg" style={{width:'100%', height: 200, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                                     <img src={agile} style={{objectFit:'contain', height: '100%'}}/>
                                 </div>
                                 <div className="horizontal" style={{justifyContent: 'flex-start', padding:'11px 20px'}}>
                                     {templateType ==='agile' ? 
-                                        <IoIosCheckmarkCircle size={24} className="themeColor" style={{cursor:'pointer'}}/>
+                                        <IoIosCheckmarkCircle size={24} className="lg" style={{cursor:'pointer'}}/>
                                         :
                                         <RiCheckboxBlankCircleLine size={24} className="dg" style={{cursor:'pointer'}} onClick={() => setTemplateType('agile')}/>
                                     }
-                                    <p className="t45 title" style={{fontFamily:'wh-bold', marginLeft: 10, marginBottom:3}}>agile view</p>
+                                    <p className={templateType ==='agile' ? "t45 lg" : 't45 title'} style={{fontFamily:'wh-bold', marginLeft: 10, marginBottom:3}}>agile view</p>
                                 </div>
                 
                             </div>
 
-                            <div style={{height:250, boxSizing:'border-box', width:'27%' ,padding:0, border: '2.5px solid', borderColor : templateType === 'timeline' ? '#008EF6' : '#eee', borderRadius: 10, overflow:'hidden', display: 'flex', flexDirection: 'column', cursor:'pointer'}} onClick={() => setTemplateType('timeline')}>
+                            <div className={templateType === 'timeline' ? 'backgroundThemeColor' : ''} style={{height:250, boxSizing:'border-box', width:'27%' ,padding:0, border: '2.5px solid', borderColor : templateType === 'timeline' ? '#008EF6' : '#eee', borderRadius: 10, overflow:'hidden', display: 'flex', flexDirection: 'column', cursor:'pointer'}} onClick={() => setTemplateType('timeline')}>
                                 
                                 <div className="backgroundmg" style={{width:'100%', height: 200, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                                     <img src={timeline} style={{objectFit:'contain', height: '100%'}}/>
                                 </div>
                                 <div className="horizontal" style={{justifyContent: 'flex-start', padding:'11px 20px', }}>
                                     {templateType ==='timeline' ? 
-                                        <IoIosCheckmarkCircle size={24} className="themeColor" style={{cursor:'pointer'}}/>
+                                        <IoIosCheckmarkCircle size={24} className="lg" style={{cursor:'pointer'}}/>
                                         :
                                         <RiCheckboxBlankCircleLine size={24} className="dg" style={{cursor:'pointer'}} onClick={() => setTemplateType('timeline')}/>
                                     }
-                                    <p className="t45 title" style={{fontFamily:'wh-bold', marginLeft: 10, marginBottom:3}}>timeline view</p>
+                                    <p className={templateType ==='timeline' ? "t45 lg" : 't45 title'} style={{fontFamily:'wh-bold', marginLeft: 10, marginBottom:3}}>timeline view</p>
                                 </div>
                 
                             </div>

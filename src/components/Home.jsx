@@ -89,7 +89,8 @@ const Home = () => {
                     <div className="projects-container-item">
                         <div className="projects-container-item-header">
                             <p className="t445 title">Ongoing projects</p>
-                            <p className="t5 themeColor clickable">add new</p>
+                            <Link to="/project/new"><p className="t5 themeColor clickable">add new</p></Link>
+                            
                         </div>
                         <ProjectCard/>
                         <ProjectCard/>

@@ -159,6 +159,10 @@ input:focus , textarea:focus{
     background-color: #ababab;
 }
 
+.backgroundThemeColor {
+    background-color: var(--primaryColor);
+}
+
 .lg {
     color: var(--lg);
 }
