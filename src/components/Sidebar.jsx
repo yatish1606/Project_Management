@@ -49,6 +49,13 @@ const Sidebar = () => {
 						return <MenuItem title={option.title} path={option.path} icon={option.icon} isHovering={isHovering} isActive={GetCurrentPath() === option.path}/>
 					})}
 				</div>
+				<div className="changeColorBG" style={{width: 40, height: 40, borderRadius: 25, backgroundColor: '#eee', display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", flexDirection: "row", cursor: "pointer", position:'absolute', bottom: 20, left: 20}}>
+						<img className="changeColorBG" src={randomUser} style={{width: 35, height: 35, marginLeft: 0, marginTop: 5}}/>
+				</div>
+				<div style={{display: "flex", flexDirection: "column", alignItems: "flex-start", position: 'absolute', bottom: 20, left: 100}}>
+						<p className="t445 title">Name Surname</p>
+						<p className="t5 sub">Designation</p>	
+				</div>
             </div>
             <div className={GetCurrentPath() === '/dashboard' ? "navbar-container isHome" : 'navbar-container'} style={{display: 'none'}}>
                 
