@@ -1,224 +1,205 @@
-import React from 'react'
-import {BsThreeDots, BsThreeDotsVertical} from 'react-icons/bs'
-import { RiBubbleChartLine} from 'react-icons/ri'
-import { AppButton, GetCurrentPath, IconButton, ProjectCard, UpcomingTaskCard} from './Common'
-import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar'
-import {ProgressProvider, ProjectCardSmall} from './Common'
-import randomUser from '../assets/user.png'
-import { Scrollbars } from 'react-custom-scrollbars'
-import Lottie from 'react-lottie';
-import * as animationData from '../assets/computer.json'
-
-import '../css/global.css'
+import React , {useEffect} from "react"
 import '../css/home.css'
-import { FiChevronDown, FiChevronRight, FiEdit3, FiPlus, FiShare2 } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
-
-const StatsCard = ({count, n1, n2}) => {
-    return (
-        <div style={{display: 'flex', flexDirection:'row', alignItems: 'center', marginRight:40}}>
-            <p className="t0 themeColor">{count}</p>
-            <div style={{display: 'flex', flexDirection: 'column', marginLeft: 10}}>
-                <p className="t445 title" style={{fontSize: 15}}>{n1}</p>
-                <p className="t445 title" style={{fontSize: 15, marginTop: 3}}>{n2}</p>
-            </div>
-        </div>
-    )
-}
+import { FiChevronDown, FiCodesandbox } from 'react-icons/fi'
+import float1 from '../assets/float1.svg'
+import float2 from '../assets/float2.svg'
+import float3 from '../assets/float3.svg'
+import float4 from '../assets/float4.svg'
+import float5 from '../assets/float5.svg'
+import s1 from '../assets/s1.svg'
+import s3 from '../assets/s3.svg'
+import s4 from '../assets/s4.svg'
+import { BsFillGrid1X2Fill, BsKanbanFill, BsNewspaper, BsPeopleFill } from 'react-icons/bs'
+import CurvedArrow from "react-curved-arrow"
+import { Link } from "react-router-dom"
 
 const Home = () => {
-    console.log(GetCurrentPath())
+    
+    const goToWhy = () => {
+       window.scroll({
+           top:window.innerHeight,
+           left:0,
+           behavior:'smooth'
+       })
+    }
+
+    useEffect(() => {
+        
+        var steps = document.querySelectorAll('.step-div')
+        
+        if(steps.length === 4) {
+            var i = 0;
+            let duration = i === 0 ? 1300 : 500
+            setInterval(function () {
+                steps.forEach(step => step.classList.remove('splash'))
+                steps[i].classList.add('splash')
+                i++
+                if(i == steps.length) i = 0
+            }, duration)
+        }
+
+    }, [])
+
     return (
-        <div className={GetCurrentPath() === '/dashboard' ? "main-container isHome" : 'main-container'} style={{display: 'flex', flexDirection: 'row', }}>
-            
-            <div className="home-left">
-                <Scrollbars 
-                    style={{width : window.innerWidth * 0.75 - 110, height: window.innerHeight}}
-                    autoHide
-                    autoHideDuration={1000}
-                    autoHideTimeout={800}
-                    renderThumbVertical={({ style, ...props }) =>
-                    <div {...props} className="backgroundPrimary" style={{ ...style, opacity: 0.4 ,borderRadius: 10 , width: 8, paddingRight: 20, marginRight: 20}}/>
-                    }
-                    
-                >
-                <p className="t2 title" style={{marginTop: 10}}>Dashboard</p>
-                <Link to="/project/new">
-                    <AppButton 
-                        style={{position: 'absolute', top: 10, right: 40}} 
-                        title="New Project" 
-                        hasIcon 
-                        icon={<FiPlus 
-                        size={18}/>}
-                    />
-                </Link>
-
-
-                <div className="dashboard-info">
-                    <Lottie
-                        width={260}
-                        height={130}
-                        options={{
-                            animationData: animationData.default,
-                            loop: true,
-                            autoplay: true,
-                            rendererSettings: {
-                                preserveAspectRatio: 'xMidYMid slice'
-                            }
-                        }}
-                        style={{position: 'absolute', bottom:0, left: 40}}
-                        speed={0.5}
-                    />
-                    <div style={{display: 'flex', flexDirection: 'column', marginLeft: 330}}>
-                        <p className="t45 sub" style={{marginTop: 15}}>Hey John Doe, you have</p>
-                        <p className="t4 title" style={{marginTop: 5, display: 'flex', flexDirection: 'row', alignItems: 'center', fontFamily:'wh-bold', fontSize: 16}}>
-                            <StatsCard count={15} n1="ongoing" n2="projects"/>
-                            <div className="dot"></div>
-                            <StatsCard count={5} n1="upcoming" n2="tasks"/>
-                            <div className="dot"></div>
-                            <StatsCard count={1} n1="pending" n2="invitations"/>
-                        </p>
-                        
-                        <IconButton icon={<FiChevronRight size={24}/>} style={{position: 'absolute', top: 35, right: 20}}/>
-                    </div>
-                </div>
-
+            <div className="home-container">
                 
-
-                <div className="horizontal" style={{width:window.innerWidth * 0.75 - 130, marginTop: 40, alignItems: 'flex-start', boxSizing:'border-box'}}>
-                    <div className="projects-container-item">
-                        <div className="projects-container-item-header">
-                            <p className="t445 title">Ongoing projects</p>
-                            <Link to="/project/new"><p className="t5 themeColor clickable">add new</p></Link>
-                            
+                <div className="home-container-upper">
+                    
+                    <div className="header">
+                        <div className='header-left'>
+                            <div className="app-logo">
+                                <FiCodesandbox size={35} className="themeColor"/>
+                                <p className="t3 lg" style={{marginLeft: 15, letterSpacing: 1, paddingBottom: 8}}>pro<span style={{color:'#ED4B01', fontFamily:'gs-bold', margin:'auto 3px', fontSize: 29, marginTop: -5}}>:</span><span className="themeColor">manage</span></p>
+                            </div>
                         </div>
-                        <ProjectCard/>
-                        <ProjectCard/>
-                        <ProjectCard/>
-                    </div>
-                    <div className="projects-container-item">
-                        <div className="projects-container-item-header">
-                            <p className="t445 title">Completed projects</p>
+                        <div className='header-right'>
+                            <Link to="/dashboard">
+                            <div className="login-button">
+                                <p className="t445 title" style={{letterSpacing: 0.6}}>Login</p>
+                            </div>
+                            </Link>
                         </div>
-                        <ProjectCardSmall/>
                     </div>
-                    <div className="projects-container-item">
-                        <div className="projects-container-item-header">
-                            <p className="t445 title">Archived projects</p>
-                        </div>
-                        <ProjectCardSmall/>
-                    </div>
-                </div>
-
-                <div className='stats-box'>
-                    <div className="stats-box-inner">
-                        <div className="horizontal">
-                            <p className="t4">Stats</p>
-                            <div className="horizontal stats-drop">
-                                <p className="t45 title">all days</p>
-                                <FiChevronDown size={20} className="title"/>
+                    
+                    <div className="home-main">
+                        <p className="t00 lg" style={{width:'80%'}}>Efficiently manage your projects and people</p>
+                        <p className="t4 dg" style={{marginTop: 30, fontFamily:'wh-sbold', letterSpacing: 0.9}}>With pro:manage, manage your daily projects with ease</p>
+                    
+                        <div className="horizontal" style={{justifyContent: "flex-start", marginTop: 30}}>
+                            <div className="get-started-button">
+                                <p className="t4 title" style={{letterSpacing: 0.2}}>Get started</p>
+                            </div>
+                            <div className="learn-more-button">
+                                <p className="t445" onClick={goToWhy}>Learn more</p>
                             </div>
                         </div>
                     </div>
+
+                    <div className='down-arrow' onClick={goToWhy}><FiChevronDown size={26} className="themeColor"/></div>
+ 
                 </div>
 
-                </Scrollbars>
-            </div>
-
-
-            <div className="home-right">       
-                <Scrollbars 
-                    style={{width : window.innerWidth * 0.25 - 5, height: window.innerHeight}}
-                    autoHide
-                    autoHideDuration={1000}
-                    autoHideTimeout={800}
-                    renderThumbVertical={({ style, ...props }) =>
-                    <div {...props} className="backgroundPrimary" style={{ ...style, opacity: 0.4 ,borderRadius: 10 , width: 8, paddingRight: 20, marginRight: 20}}/>
-                    }
-                    
-                >
-                <div className="horizontal" style={{padding: '25px 25px 20px 25px', height: 50, alignItems: 'flex-start'}}>
-                    <div>
-                        <p className="t4 title">My Profile</p>
-                        <p className="t6 sub" style={{marginTop: 6, fontFamily: 'wh-sbold'}}><span style={{fontSize: 13,}} className="themeColor">75%   </span>profile completed</p>
-                    </div>                            
-                    <IconButton icon={<BsThreeDots size={25} color="#878787"/>}/>
-                </div> 
-
-                <div className="home-profile-box">
-                    <div style={{width: 150, height: 150, borderRadius: 150, overflow:'hidden'}}>
-                        <ProgressProvider valueStart={0} valueEnd={75}>
-                                {value => 
-                                    <CircularProgressbarWithChildren 
-                                        value={value} 
-                                        circleRatio={1} 
-                                        styles={buildStyles({
-                                            pathTransitionDuration: 1.5,
-                                            textColor: "#151515",
-                                            pathColor: "green",
-                                            trailColor: "transparent",     
-                                        })}
-                                        className="themeColor"
-                                        strokeWidth={3}
-                                        
-                                    >
-                                        <div style={{width: 110, height: 110, borderRadius: 150, overflow:'hidden', backgroundColor: '#eee'}}>
-                                            {/* <img src={randomUser} style={{width:'100%', height:'100%'}}/> */}
-                                        </div>
-                                    </CircularProgressbarWithChildren>
-                                        
-                                }
-                        </ProgressProvider>
+                <div className="floating-div">
+                    <div className='float1'>
+                        <img src={float1}/>
                     </div>
-                    <div style={{width: 7, height: 7, borderRadius: 10, backgroundColor: 'darkorange', position: 'absolute', top: 130, left: 90}}></div>
-                    <div style={{width: 11, height: 11, borderRadius: 10, backgroundColor: 'green', position: 'absolute', top: 160, left: 60}}></div>
-                    <div style={{width: 8, height: 8, borderRadius: 10, backgroundColor: 'lightblue', position: 'absolute', top: 210, left: 85}}></div>
-                    <div style={{width: 8, height: 8, borderRadius: 10, backgroundColor: 'violet', position: 'absolute', top: 140, right: 85}}></div>
-                    <div style={{width: 12, height: 12, borderRadius: 10, backgroundColor: 'orangered', position: 'absolute', top: 170, right: 75}}></div>
-                    <div style={{width: 7, height: 7, borderRadius: 10, backgroundColor: 'greenyellow', position: 'absolute', top: 220, right: 95}}></div>
-                </div>   
-                
-                <p className="t3 text-center title">John Doe</p> 
-                <p className="t5 text-center sub" style={{marginTop: 10}}>Senior Design Manager</p>   
-                
-                <div className="horizontal" style={{justifyContent: 'center', marginTop: 15, padding: '0 25px'}}>
-                    {/* <div className="profile-option">
-						<FiShare2 size={15}/>
-						<p className="title t6" style={{fontFamily:'wh-bold',  marginLeft: 10}}>Share</p>
-					</div> */}
-                    <div className="profile-option">
-						<FiEdit3 size={15}/>
-						<p className="title t6" style={{fontFamily:'wh-bold',  marginLeft: 10}}>Edit profile</p>
-					</div>
-                    {/* <div className="profile-option">
-						<RiBubbleChartLine size={15}/>
-						<p className="title t6" style={{fontFamily:'wh-bold', marginLeft: 10}}>Account</p>
-					</div> */}
-                </div> 
-
-                <div className="horizontal" style={{margin: '10px 25px', marginTop: 25}}>
-                    <p className="t445 title">Upcoming tasks</p>
-                    <p className="t5 themeColor clickable">View all</p>
-                </div> 
-
-                <UpcomingTaskCard/>
-                <UpcomingTaskCard/>
-                
-
-                <div className="horizontal" style={{margin: '10px 25px', marginTop: 20}}>
-                    <p className="t445 title">Invitations</p>
-                    <p className="t5 themeColor clickable">View all</p>
-                </div> 
-
-                <UpcomingTaskCard/>
-                <UpcomingTaskCard/> 
-
-                <div style={{width: 1, height: 500}}>
-
+                    <div className='float2'>
+                        <img src={float2}/>
+                    </div>
+                    <div className='float3'>
+                        <img src={float3}/>
+                    </div>
+                    <div className='float4'>
+                        <img src={float4} style={{marginTop: 11}}/>
+                    </div>
+                    <div className='float5'>
+                        <img src={float5}/>
+                    </div>
                 </div>
-            </Scrollbars>
+
+                
+                <div className="home-container-lower">
+
+                    <p className="t2 lg text-center">How does <span className="t2 lg" style={{marginLeft: 0, letterSpacing: 1, paddingBottom: 8,}}>pro<span style={{color:'#ED4B01', fontFamily:'gs-bold', margin:'auto 3px', fontSize: 29, marginTop: -5}}>:</span><span className="themeColor">manage</span></span>work ?</p>
+                    
+                    
+                    <div className="horizontal" style={{padding:'10px 15%', boxSizing:'border-box', marginTop: 100, alignItems: 'flex-start'}}>
+                            <div className="step-div">
+                                <div className="step-div-image2 f1">
+                                    <BsNewspaper size={40}/>
+                                </div>
+                                <p className="t4 sub text-center" style={{color:'inherit', marginTop: 15, fontSize: 17}}>Create projects</p>
+                            </div>
+                            <div className="step-div">
+                                <div className="step-div-image2 f2">
+                                    <BsPeopleFill size={40}/>
+                                </div>
+                                <p className="t4 sub text-center" style={{color:'inherit', marginTop: 15, fontSize: 17}}>Invite and add people</p>
+                            </div>
+                            <div className="step-div">
+                                <div className="step-div-image2 f3">
+                                    <BsFillGrid1X2Fill size={35}/>
+                                </div>
+                                <p className="t4 sub text-center" style={{color:'inherit', marginTop: 15, fontSize: 17}}>Manage workflows</p>
+                            </div>
+                            <div className="step-div">
+                                <div className="step-div-image2 f4">
+                                    <BsKanbanFill size={37}/>
+                                </div>
+                                <p className="t4 sub text-center" style={{color:'inherit', marginTop: 15, fontSize: 17}}>Assign tasks</p>
+                            </div>
+                            
+                            <CurvedArrow
+                                fromSelector=".f1"
+                                toSelector=".f2"
+                                middleY={30}
+                                toOffsetX={-60}
+                                fromOffsetX={60}
+                                width={2}
+                                color="#313131"
+                                className="arrow"
+                            />
+
+                            <CurvedArrow
+                                fromSelector=".f2"
+                                toSelector=".f3"
+                                middleY={-30}
+                                toOffsetX={-60}
+                                fromOffsetX={60}
+                                width={2}
+                                color="#313131"
+                                className="arrow"
+                            />
+
+                            <CurvedArrow
+                                fromSelector=".f3"
+                                toSelector=".f4"
+                                middleY={30}
+                                toOffsetX={-60}
+                                fromOffsetX={60}
+                                width={2}
+                                color="#313131"
+                                className="arrow"
+                            />
+                        </div>
+                </div>
+
+
+                <div className="copilot">
+                    
+                
+                    <img src={s1} id="s1" style={{width:'50%', borderRadius: 20, left: -60, position:'absolute'}}/>
+                    <p className="t1" style={{color:'#eee',left: '50%', position:'absolute', width:'40%', top: 50, fontSize: 35}}>Easily create projects from templates</p>
+                    <p className="t1 themeColor" style={{left: '50%', position:'absolute', width:'40%', top: 150, fontSize: 30}}>it's that easy!</p>
+                
+                    <img src={float4} id="s2" style={{width:'30%', borderRadius: 20, right: -60, position:'absolute', top: 450}}/>
+                    <p className="t1" style={{color:'#eee',right: '30%', position:'absolute', width:'40%', top: 570, fontSize: 35, textAlign:'right'}}>Set up project timelines</p>
+                    <p className="t1 themeColor" style={{right: '30%', position:'absolute', width:'40%', top: 630, fontSize: 30, textAlign:'right'}}>set due dates and milestones</p>
+                
+                    <img src={s3} id="s3" style={{width:'20%', borderRadius: 20, left: -30, position:'absolute', top: 580}}/>
+                    <p className="t1" style={{color:'#eee',left: '20%', position:'absolute', width:'40%', top: 900, fontSize: 35}}>Add project members</p>
+                    <p className="t1 themeColor" style={{left: '20%', position:'absolute', width:'40%', top: 960, fontSize: 30}}>invite people to contribute</p>
+                
+                    <img src={s4} id="s4" style={{width:'80%', borderRadius: 20, right: -60, position:'absolute', top: 1200}}/>
+                    <p className="t1" style={{color:'#eee',right: '80%', position:'absolute', width:'20%', top: 1250, fontSize: 35, textAlign:'right'}}>Create and manage tasks</p>
+                    <p className="t1 themeColor" style={{right: '80%', position:'absolute', width:'20%', top: 1350, fontSize: 30, textAlign:'right'}}>assign people onto tasks</p>
+                
+                    <img src={float5} id="s5" style={{width:'40%', borderRadius: 20, left: -30, position:'absolute', top: 1550}}/>
+                    <p className="t1" style={{color:'#eee',left: '40%', position:'absolute', width:'40%', top: 1700, fontSize: 35}}>Get project statistics</p>
+                    <p className="t1 themeColor" style={{left: '40%', position:'absolute', width:'40%', top: 1760, fontSize: 30}}>bar graphs, line charts, you name it</p>
+                
+                </div>
+
+                <p className="t4 text-center" style={{marginTop: 50, color:'#eee', marginBottom: 0}}>Designed and developed by Yatish Kelkar</p>
+                <p className="t5 text-center" style={{marginTop: 20, color:'#878787', marginBottom: 100}}>
+                    <a href="mailto:yatish1606@gmail.com" style={{color:'#878787'}}>
+                    yatish1606@gmail.com
+                    </a>
+                </p>
+
+
             </div>
-        </div>
+        
     )
 }
 

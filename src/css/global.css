@@ -19,11 +19,19 @@ html {
     font-family: wh-med;
 }
 
+html::-webkit-scrollbar {
+    display: none;
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: wh-med;
     background-color: var(--background);
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 body * {
@@ -199,8 +207,16 @@ input:focus , textarea:focus{
     transition: 0.1s ease-in-out;
 }
 
+.t00 {
+    font-family: wh-bold;
+    font-size: 50px;
+    letter-spacing: 0.0px;
+    margin: 0;
+    padding: 0;
+}
+
 .t0 {
-    font-family: gs-bold;
+    font-family: wh-bold;
     font-size: 40px;
     letter-spacing: 0.2px;
     margin: 0;
@@ -208,7 +224,7 @@ input:focus , textarea:focus{
 }
 
 .t1 {
-    font-family: gs-bold;
+    font-family: wh-bold;
     font-size: 32px;
     letter-spacing: 0.1px;
     margin: 0;
