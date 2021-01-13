@@ -3,7 +3,7 @@ import {BsThreeDots, BsThreeDotsVertical} from 'react-icons/bs'
 import { RiBubbleChartLine} from 'react-icons/ri'
 import { AppButton, GetCurrentPath, IconButton, ProjectCard, UpcomingTaskCard} from './Common'
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar'
-import {ProgressProvider, ProjectCardSmall} from './Common'
+import {ProgressProvider, ProjectCardSmallEmpty} from './Common'
 import randomUser from '../assets/user.png'
 import { Scrollbars } from 'react-custom-scrollbars'
 import Lottie from 'react-lottie';
@@ -100,13 +100,13 @@ const Home = () => {
                         <div className="projects-container-item-header">
                             <p className="t445 title">Completed projects</p>
                         </div>
-                        <ProjectCardSmall/>
+                        <ProjectCardSmallEmpty title="Its quiet in here" description="Completed projects will appear here"/>
                     </div>
                     <div className="projects-container-item">
                         <div className="projects-container-item-header">
                             <p className="t445 title">Archived projects</p>
                         </div>
-                        <ProjectCardSmall/>
+                        <ProjectCardSmallEmpty title="Archive is empty" description="Archived projects will appear here"/>
                     </div>
                 </div>
 
@@ -170,15 +170,18 @@ const Home = () => {
                                 }
                         </ProgressProvider>
                     </div>
+
                     <div style={{width: 7, height: 7, borderRadius: 10, backgroundColor: 'darkorange', position: 'absolute', top: 130, left: 90}}></div>
                     <div style={{width: 11, height: 11, borderRadius: 10, backgroundColor: 'green', position: 'absolute', top: 160, left: 60}}></div>
                     <div style={{width: 8, height: 8, borderRadius: 10, backgroundColor: 'lightblue', position: 'absolute', top: 210, left: 85}}></div>
                     <div style={{width: 8, height: 8, borderRadius: 10, backgroundColor: 'violet', position: 'absolute', top: 140, right: 85}}></div>
                     <div style={{width: 12, height: 12, borderRadius: 10, backgroundColor: 'orangered', position: 'absolute', top: 170, right: 75}}></div>
                     <div style={{width: 7, height: 7, borderRadius: 10, backgroundColor: 'greenyellow', position: 'absolute', top: 220, right: 95}}></div>
+                
                 </div>   
                 
                 <p className="t3 text-center title">John Doe</p> 
+                
                 <p className="t5 text-center sub" style={{marginTop: 10}}>Senior Design Manager</p>   
                 
                 <div className="horizontal" style={{justifyContent: 'center', marginTop: 15, padding: '0 25px'}}>
@@ -187,7 +190,7 @@ const Home = () => {
 						<p className="title t6" style={{fontFamily:'wh-bold',  marginLeft: 10}}>Share</p>
 					</div> */}
                     <div className="profile-option">
-						<FiEdit3 size={15}/>
+						<FiEdit3 size={15} className="title"/>
 						<p className="title t6" style={{fontFamily:'wh-bold',  marginLeft: 10}}>Edit profile</p>
 					</div>
                     {/* <div className="profile-option">

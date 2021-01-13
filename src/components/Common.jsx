@@ -10,6 +10,7 @@ import userImage2 from '../assets/user2.png'
 import userImage3 from '../assets/user3.png'
 import userImage4 from '../assets/user4.png'
 import {RiChat3Line} from 'react-icons/ri'
+import { CgInbox } from 'react-icons/cg'
 
 
 export const IconButton = ({icon, onClick, style}) => {
@@ -94,6 +95,16 @@ export const ProjectCardSmall = ({}) => {
     )
 }
 
+export const ProjectCardSmallEmpty = ({title, description}) => {
+    return (
+        <div className='projects-card-empty' style={{height: 200}}>
+            <CgInbox size={50} className="vdg" style={{marginTop: 5}}/>
+            <p className="t4 themeColor">{title}</p>
+            <p className="t5 sub">{description}</p>
+        </div>
+    )
+}
+
 export const GetCurrentPath = () => useLocation().pathname
 
 export const ProgressProvider = ({ valueStart, valueEnd, children }) => {
@@ -110,7 +121,7 @@ export const UpcomingTaskCard = () => {
         <div className="" style={{width: window.innerWidth * 0.25 - 50, margin:'10px 25px 5px 25px', borderRadius: 5, padding: '10px 0px 15px 0', position:'relative', borderBottom: '1px solid #eee', cursor:'pointer'}}>
             <p className="t45 title" style={{marginTop: 0}}>Plan Management Meeting</p>
             <p className="t6 title" style={{marginTop: 5}}>Comex Application</p>
-            <div style={{width: 70, height: 25, borderRadius: 5, position: 'absolute', top: 10, right: 5, backgroundColor: 'white', padding:0}}>
+            <div className="backgroundbg" style={{width: 70, height: 25, borderRadius: 5, position: 'absolute', top: 10, right: 5, padding:0}}>
                 <div className="dangerBG" style={{width: 60, height: 21, padding:'2px 5px', borderRadius: 5,display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#E048002a'}}>
                     <p className="t55 danger">Due 23/4</p>
                 </div>
@@ -129,4 +140,15 @@ export const CustomInput = ({placeholder, onChange, onFocus, onBlur, size, type,
             />
         </div>
     )
+}
+
+export function getRandomColor(fadeColor) {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    if(fadeColor)
+        return color.concat('5a')
+    return color;
 }

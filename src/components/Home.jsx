@@ -12,7 +12,7 @@ import s4 from '../assets/s4.svg'
 import { BsFillGrid1X2Fill, BsKanbanFill, BsNewspaper, BsPeopleFill } from 'react-icons/bs'
 import CurvedArrow from "react-curved-arrow"
 import { Link } from "react-router-dom"
-
+ 
 const Home = () => {
     
     const goToWhy = () => {
@@ -48,12 +48,12 @@ const Home = () => {
                     <div className="header">
                         <div className='header-left'>
                             <div className="app-logo">
-                                <FiCodesandbox size={35} className="themeColor"/>
+                                <FiCodesandbox size={32} className="themeColor"/>
                                 <p className="t3 lg" style={{marginLeft: 15, letterSpacing: 1, paddingBottom: 8}}>pro<span style={{color:'#ED4B01', fontFamily:'gs-bold', margin:'auto 3px', fontSize: 29, marginTop: -5}}>:</span><span className="themeColor">manage</span></p>
                             </div>
                         </div>
                         <div className='header-right'>
-                            <Link to="/dashboard">
+                            <Link to="/login">
                             <div className="login-button">
                                 <p className="t445 title" style={{letterSpacing: 0.6}}>Login</p>
                             </div>
@@ -66,9 +66,11 @@ const Home = () => {
                         <p className="t4 dg" style={{marginTop: 30, fontFamily:'wh-sbold', letterSpacing: 0.9}}>With pro:manage, manage your daily projects with ease</p>
                     
                         <div className="horizontal" style={{justifyContent: "flex-start", marginTop: 30}}>
+                            <Link to="/register">
                             <div className="get-started-button">
                                 <p className="t4 title" style={{letterSpacing: 0.2}}>Get started</p>
                             </div>
+                            </Link>
                             <div className="learn-more-button">
                                 <p className="t445" onClick={goToWhy}>Learn more</p>
                             </div>

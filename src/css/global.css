@@ -48,7 +48,7 @@ a {
 input, textarea {
     border: none;
     outline: none;
-    border: 2.5px solid var(--mg);
+    border: 2.5px solid var(--dg);
     padding: 5px 15px;
     width: calc(100% - 30px);
     font-size: 17px;
@@ -68,11 +68,11 @@ textarea {
 
 input::placeholder, textarea::placeholder {
     font-family: wh-sbold;
-    font-size: 17px;
+    font-size: 16px;
     color: var(--vdg);
 }
 
-input:focus , textarea:focus{
+input:focus, textarea:focus{
     border: 2.5px solid var(--primaryColor);
 }
 
@@ -171,7 +171,7 @@ input:focus , textarea:focus{
 }
 
 .backgroundThemeColor {
-    background-color: var(--primaryColor);
+    background-color: var(--primaryColor) !important;
 }
 
 .lg {
@@ -184,6 +184,10 @@ input:focus , textarea:focus{
 
 .dg {
     color: var(--dg);
+}
+
+.vdg {
+    color: var(--vdg);
 }
 
 .clickable {

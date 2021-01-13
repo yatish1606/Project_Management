@@ -7,6 +7,7 @@ import randomUser from '../assets/user.png'
 
 import '../css/sidebar.css'
 import { GetCurrentPath, IconButton, MenuItem } from './Common'
+import { useTheme } from './ThemeProvider'
 
 
 const menuOptions = [
@@ -35,28 +36,49 @@ const menuOptions = [
 const Sidebar = () => {
 
 	const [isHovering, setIsHovering] = useState(false)
+
+	const {theme, setTheme} = useTheme()
+
+
+
+
+
+
+
+
+
+
+
+
     return (
         <React.Fragment>
             <div className="sidebar-container" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
-                <div className="app-logo-div">
+                
+				<div className="app-logo-div">
 					<div style={{display:'flex', alignItems: 'center', justifyContent: 'center'}}>
 						<SiGraphql size={30}/>
 					</div>
 					<p className="title t3" style={{marginLeft: 30}}>AppName</p>
 				</div>
+				
 				<div>
 					{menuOptions.map(option => {
 						return <MenuItem title={option.title} path={option.path} icon={option.icon} isHovering={isHovering} isActive={GetCurrentPath() === option.path}/>
 					})}
 				</div>
-				<div className="changeColorBG" style={{width: 40, height: 40, borderRadius: 25, backgroundColor: '#eee', display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", flexDirection: "row", cursor: "pointer", position:'absolute', bottom: 20, left: 20}}>
-						<img className="changeColorBG" src={randomUser} style={{width: 35, height: 35, marginLeft: 0, marginTop: 5}}/>
+
+				<button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>change</button>
+				
+				<div className="background" style={{width: 40, height: 40, borderRadius: 25, backgroundColor: '#eee', display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", flexDirection: "row", cursor: "pointer", position:'absolute', bottom: 20, left: 20}}>
+						<img className="background" src={randomUser} style={{width: 40, height: 40, marginLeft: 0, marginTop: 0}}/>
 				</div>
+				
 				<div style={{display: "flex", flexDirection: "column", alignItems: "flex-start", position: 'absolute', bottom: 20, left: 100}}>
 						<p className="t445 title">Name Surname</p>
 						<p className="t5 sub">Designation</p>	
 				</div>
-            </div>
+            
+			</div>
             <div className={GetCurrentPath() === '/dashboard' ? "navbar-container isHome" : 'navbar-container'} style={{display: 'none'}}>
                 
 				<div style={{margin:'auto 10px'}}>
