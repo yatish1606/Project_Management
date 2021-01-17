@@ -1,6 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { ThemeProvider } from './components/ThemeProvider'
+import { UserProvider } from './components/UserProvider'
+import { AuthProvider } from './components/AuthProvider'
 
 import Dashboard from './components/Dashboard'
 import Home from './components/Home'
@@ -21,27 +23,31 @@ const AppRouter = () => {
 
 	return (
 		<div>
+			<AuthProvider>
 			<ThemeProvider>
-			<Router>
-				<Switch>
-					
-					<Route path="/" exact render={(props) => <Home {...props}/>}/>
-					<Route path="/login" exact render={(props) => <Login {...props}/>}/>
-					<Route path="/register" exact render={(props) => <Register {...props}/>}/>
-					
-					<div>
-					
-						<Route path="/dashboard" exact render={(props) => <Dashboard {...props}/>}/>
-						<Route path="/project" exact render={(props) => <Project {...props}/>}/>
-						<Route path="/project/new" exact render={(props) => <NewProject {...props}/>}/>
-						<Route path="*" render={(props) => <Sidebar {...props}/>}/>
-					
-					</div>
+			<UserProvider>
+				<Router>
+					<Switch>
+						
+						<Route path="/" exact render={(props) => <Home {...props}/>}/>
+						<Route path="/login" exact render={(props) => <Login {...props}/>}/>
+						<Route path="/register" exact render={(props) => <Register {...props}/>}/>
+						
+						<div>
+						
+							<Route path="/dashboard" exact render={(props) => <Dashboard {...props}/>}/>
+							<Route path="/project" exact render={(props) => <Project {...props}/>}/>
+							<Route path="/project/new" exact render={(props) => <NewProject {...props}/>}/>
+							<Route path="*" render={(props) => <Sidebar {...props}/>}/>
+						
+						</div>
 
-				</Switch>
-				
-			</Router>
+					</Switch>
+					
+				</Router>
+			</UserProvider>
 			</ThemeProvider>
+			</AuthProvider>
 		</div>
 	)
 }

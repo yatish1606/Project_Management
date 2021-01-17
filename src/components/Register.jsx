@@ -3,7 +3,7 @@ import '../css/login.css'
 import {HiCheck, HiOutlineArrowNarrowLeft} from 'react-icons/hi'
 import { AppButton, CustomInput, getRandomColor, IconButton } from './Common'
 import { FiCheck, FiEye, FiEyeOff } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import s1 from '../assets/s1.svg'
 import s3 from '../assets/s3.svg'
 import { FiChevronDown, FiCodesandbox } from 'react-icons/fi'
@@ -11,12 +11,21 @@ import s4 from '../assets/s4.svg'
 import { PasswordMeter } from 'password-meter'
 import { RiCheckboxBlankCircleLine } from 'react-icons/ri'
 import {IoIosCheckmarkCircle} from 'react-icons/io'
+import axios from 'axios'
+import { APIURL } from './api'
+import { useUser } from './UserProvider'
+import { useAuth } from './AuthProvider'
 
 
 
 const randomColor = getRandomColor(true)
 
 const Register = ({history}) => {
+
+
+    const {user, setUser} = useUser()
+    const {isAuthenticated, setAuth} = useAuth()
+    const historyRouter = useHistory()
 
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
@@ -95,7 +104,25 @@ const Register = ({history}) => {
 
 
     const registerUser = () => {
-        window.location.href = '/dashboard'
+
+        const userObject = {
+            fname : firstName.charAt(0).concat(firstName.slice(1, firstName.length)),
+            lname : lastName.charAt(0).concat(lastName.slice(1, lastName.length)),
+            email : email,
+            password : password,
+            designation : designation.charAt(0).concat(designation.slice(0, designation.length)),
+            profile_photo : profilePhoto,
+            gender : gender,
+            projects : 0
+        }
+
+        axios.post(`${APIURL}/users`, userObject)
+        .then(res => {
+            setUser(res.data.userInserted)
+            setAuth(true)
+            historyRouter.push('/dashboard')
+        })
+        .catch(e => console.error(e))
     }
 
     return (
@@ -335,9 +362,10 @@ const Register = ({history}) => {
             </div>
 
             <div className="login-container-left">
+                {isAuthenticated ? 'auth' : 'nah'}
                 <div className="horizontal" style={{marginTop: '10%'}}>
                     <FiCodesandbox size={32} className="themeColor"/>
-                    <p className="t3 lg" style={{marginLeft: 15, letterSpacing: 1, paddingBottom: 8}}>pro<span style={{color:'#ED4B01', fontFamily:'gs-bold', margin:'auto 3px', fontSize: 29, marginTop: -5}}>:</span><span className="themeColor">manage</span></p>
+                    <p className="t3 " style={{marginLeft: 15, letterSpacing: 1, paddingBottom: 8, color:'#eee'}}>pro<span style={{color:'#ED4B01', fontFamily:'gs-bold', margin:'auto 3px', fontSize: 29, marginTop: -5}}>:</span><span className="themeColor">manage</span></p>
                 </div>
                 <p className="t45" style={{color:'#878787', marginTop: 20, fontSize: 16}}>an essential project management tool</p>
                 <div className='float1login'>

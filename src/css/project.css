@@ -2,29 +2,30 @@
 
 .project-top-block {
     width: calc(100% - 40px);
-    padding: 0 20px;
-    height: 150px;
+    height: 190px;
     background-color: var(--background);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 20px 30px;
-    border-bottom: 2px solid var(--lg);
+    padding: 20px 0px 0 30px;
+    /* border-bottom: 2px solid var(--mg); */
     padding-bottom: 10px;
+    position: relative;
 }
 
 .project-top-block-main {
     width: 100%;
-    height: 120px;
+    height: 110px;
     background-color: var(--background);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 10px;
 }
 
 .project-pie {
-    width: 110px;
-    height: 110px;
+    width: 100px;
+    height: 100px;
     padding-top: 20px;
 }
 
@@ -40,13 +41,13 @@
 }
 
 .project-main {
-    width: calc(100% - 20px);
-    padding: 0 0px 0 20px;
-    height: 380px;
-    background-color: transparent;
+    width: 100%;
+    padding: 0 ;
+    background-color: var(--lg);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    /* overflow: hidden; */
 }
 
 .project-discussion-block {
@@ -55,7 +56,7 @@
     height: calc(100vh - 150px - 60px);
     transition: .3s ease-in-out;
     background-color: var(--background);
-    border-left: 2px solid var(--lg);
+    border-left: 2px solid var(--mg);
 }
 
 .isClosed {
@@ -64,9 +65,138 @@
 }
 
 .project-main-content {
-    width: calc(100% - 40px);
-    margin-right: 20px;
-    background-color: darkorange;
+    width: 100%;
+    background-color: transparent;
     height: 100%;
+    /* overflow: hidden; */
     transition: .3s ease-in-out;
+}
+
+.project-discussion-button {
+    width: auto;
+    height: 25px;
+    border: 2px solid var(--dg);
+    border-radius: 5px;
+    padding: 8px 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 15px;
+    cursor: pointer;
+    background-color: var(--background);
+}
+.project-discussion-button:hover {
+    background-color: var(--mg);
+}
+
+.project-main-content-inner {
+    width: 100%;
+    background-color: transparent;
+    box-sizing: border-box;
+    padding: 30px 30px;
+    overflow: hidden;
+}
+
+.tasks-div-simple {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-bottom: 20px;
+    /* overflow: hidden; */
+}
+
+.tasks-div-simple-item {
+    width: 100%;
+    height: 70px;
+    background-color: var(--background);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.tasks-div-simple-item-label {
+    width: 10px;
+    height: 100%;
+    cursor: grab;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primaryColor);
+}
+.tasks-div-simple-item-label:hover {
+    transition: 0.15s ease-in-out;
+    width: 40px;
+    padding: 0 10px;
+}
+
+.tasks-div-simple-item-title {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 10px 15px;
+}
+
+.tasks-div-simple-item-mark {
+    width: 50px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sub);
+}
+.tasks-div-simple-item-mark:hover {
+    color: var(--title);
+}
+
+.tasks-div-simple-item-people {
+    width: 100px;
+    display: flex;
+    height: 100%;
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
+    padding-right: 70px;
+    box-sizing: border-box;
+    overflow: hidden;
+    color: var(--title);
+    font-size: 14px;
+    font-family: wh-sbold;
+}
+
+.tasks-div-simple-item-due {
+    margin: 0 15px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--sub);
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    font-family: wh-sbold;
+}
+.dot {
+    background-color: var(--sub);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    display: flex;
+}
+
+.students-box-circle {
+    /* top: 0px; */
 }

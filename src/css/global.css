@@ -35,7 +35,7 @@ body::-webkit-scrollbar {
 }
 
 body * {
-    transition: 0.3s ease-in-out;
+    transition: 0.2s ease-in-out;
 }
 
 a {
@@ -69,7 +69,7 @@ textarea {
 input::placeholder, textarea::placeholder {
     font-family: wh-sbold;
     font-size: 16px;
-    color: var(--vdg);
+    color: var(--sub);
 }
 
 input:focus, textarea:focus{
@@ -209,6 +209,25 @@ input:focus, textarea:focus{
 .hovercolor:hover {
     color: var(--primaryColor);
     transition: 0.1s ease-in-out;
+}
+
+.modalDiv {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--background);
+    color: var(--title);
+    padding: 20px;
+}
+
+.borderColormg {
+    border-color: var(--mg) !important;
+}
+
+.borderColordg {
+    border-color: var(--dg) !important;
 }
 
 .t00 {

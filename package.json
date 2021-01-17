@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.8",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
+    "axios": "^0.21.1",
     "password-meter": "^3.7.0",
     "react": "^17.0.1",
     "react-arrows": "^1.2.0",
@@ -24,6 +26,7 @@
     "react-router-transition": "^2.0.0",
     "react-scripts": "4.0.1",
     "react-sweet-progress": "^1.1.2",
+    "react-swipeable-views": "^0.13.9",
     "swiper": "^6.4.5",
     "web-vitals": "^0.2.4"
   },

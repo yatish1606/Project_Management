@@ -147,8 +147,17 @@
 }
 
 .project-priority {
-    width: 50px;
+    min-width: 50px;
     height: 25px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-priority-small {
+    width: 40px;
+    height: 20px;
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -188,7 +197,7 @@
     width: 26px;
     height: 26px;
     border-radius: 25px;
-    top: 0px;
+    /* top: 0px; */
     background-color: var(--mg);
     border: 2px solid var(--background);
     display: flex;

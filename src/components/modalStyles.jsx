@@ -10,11 +10,13 @@ export const smallModal = {
         minHeight           : '30%',
         borderRadius        : 10,
         boxSizing           : 'border-box',
-        padding             : '20px',
+        padding             : 0,
         transition          : '0.3s ease-in-out',
         display             : 'flex',
         flexDirection       : 'column',
-        alignItems          : 'center'
+        alignItems          : 'center',
+        overflow            : 'hidden',
+        border              : 'none'
     },
     overlay: {
 	    position            : 'fixed',

@@ -19,6 +19,9 @@ import agile from '../assets/agile.svg'
 import { smallModal } from './modalStyles'
 import Modal from 'react-modal'
 import gear from '../assets/gear.png'
+import axios from 'axios'
+import { APIURL } from './api'
+import { useUser } from './UserProvider'
 
 
 const usersData = [
@@ -118,6 +121,8 @@ const UserCard = ({id, fname, lname, photo, designation, addUser, people, cannot
 
 const NewProject = ({history}) => {
 
+    const {user, setUser} = useUser()
+
     const [activeIndex, setActiveIndex] = useState(0)
     const [isFocused, setIsFocused] = useState(false)
     const [isSearchDivOpen, setIsSearchDivOpen] = useState(false)
@@ -126,8 +131,8 @@ const NewProject = ({history}) => {
     const openModal = () => {
         setModal(true)
         setTimeout(() => {
-            window.location.href = '/dashboard'
-            closeModal()
+            // window.location.href = '/dashboard'
+            // closeModal()
         }, 5000)
     }
     const closeModal = () => setModal(false)
@@ -172,8 +177,8 @@ const NewProject = ({history}) => {
 
     const handleNextSlide = () => {
         if(activeIndex === 4) {
-            console.log('opening modal')
             openModal()
+            createProject()
             return
         }
         setActiveIndex(activeIndex + 1)
@@ -181,6 +186,26 @@ const NewProject = ({history}) => {
 
     const handlePreviousSlide = () => {
         setActiveIndex(activeIndex - 1)
+    }
+
+    const createProject = () => {
+        
+        let projectObject = {
+            nameOfProject,
+            projectMembers : [user, ...projectMembers],
+            hasPrivacy,
+            managers : [],
+            templateType,
+            isPrivate : isProjectPrivate,
+            dueDate : dueDate.getTime(),
+            invitationMessage,
+            projectPriority
+        }
+
+        axios.post(`${APIURL}/projects`, projectObject)
+        .then(res => {
+            console.log(res.data)
+        })
     }
 
 
@@ -192,6 +217,8 @@ const NewProject = ({history}) => {
     ]
 
     useEffect(() => {
+
+        console.log(user)
         
         var steps = document.querySelectorAll('.step-div')
         
@@ -226,7 +253,7 @@ const NewProject = ({history}) => {
     return (
         <div className='main-container'>
             <IconButton
-                icon={<HiOutlineArrowNarrowLeft size={30}/>}
+                icon={<HiOutlineArrowNarrowLeft size={30} className="title"/>}
                 style={{position: 'absolute', top: 30, left: 120}}
                 onClick={() => history.goBack()}
             />
@@ -370,7 +397,7 @@ const NewProject = ({history}) => {
                             <div className={templateType === 'simple' ? 'backgroundThemeColor' : ''} style={{height:250, boxSizing:'border-box', width:'27%' ,padding:0, border: '2.5px solid', borderColor : templateType ==='simple' ? '#008EF6' : '#eee', borderRadius: 10, overflow:'hidden', display: 'flex', flexDirection: 'column', cursor:'pointer'}} onClick={() => setTemplateType('simple')}>
                                 
                                 <div className="backgroundmg" style={{width:'100%', height: 200, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                                    <img src={simple} style={{objectFit:'contain', height: '100%'}}/>
+                                    <img src={simple} style={{objectFit:'cover', width: '100%', height: '100%'}}/>
                                 </div>
                                 <div className="horizontal" style={{justifyContent: 'flex-start', padding:'11px 20px'}}>
                                     {templateType ==='simple' ? 
@@ -386,7 +413,7 @@ const NewProject = ({history}) => {
                             <div className={templateType === 'agile' ? 'backgroundThemeColor' : ''} style={{height:250, boxSizing:'border-box', width:'27%' ,padding:0, border: '2.5px solid', borderColor : templateType === 'agile' ? '#008EF6' : '#eee', borderRadius: 10, overflow:'hidden', display: 'flex', flexDirection: 'column', cursor:'pointer'}} onClick={() => setTemplateType('agile')}>
                                 
                                 <div className="backgroundmg" style={{width:'100%', height: 200, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                                    <img src={agile} style={{objectFit:'contain', height: '100%'}}/>
+                                    <img src={agile} style={{objectFit:'cover', width: '100%', height: '100%'}}/>
                                 </div>
                                 <div className="horizontal" style={{justifyContent: 'flex-start', padding:'11px 20px'}}>
                                     {templateType ==='agile' ? 
@@ -402,7 +429,7 @@ const NewProject = ({history}) => {
                             <div className={templateType === 'timeline' ? 'backgroundThemeColor' : ''} style={{height:250, boxSizing:'border-box', width:'27%' ,padding:0, border: '2.5px solid', borderColor : templateType === 'timeline' ? '#008EF6' : '#eee', borderRadius: 10, overflow:'hidden', display: 'flex', flexDirection: 'column', cursor:'pointer'}} onClick={() => setTemplateType('timeline')}>
                                 
                                 <div className="backgroundmg" style={{width:'100%', height: 200, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                                    <img src={timeline} style={{objectFit:'contain', height: '100%'}}/>
+                                    <img src={timeline} style={{objectFit:'cover', width: '100%', height: '100%'}}/>
                                 </div>
                                 <div className="horizontal" style={{justifyContent: 'flex-start', padding:'11px 20px', }}>
                                     {templateType ==='timeline' ? 
@@ -587,7 +614,7 @@ const NewProject = ({history}) => {
                                     }} 
                                     
                                     customInput={
-                                        <div className='backgroundlg horizontal' style={{width: 200, height:50, borderRadius: 10, padding: '10px 15px', boxSizing: 'border-box', cursor:'pointer', flexDirection: 'row-reverse', justifyContent: 'flex-end'}}>
+                                        <div className='backgroundmg horizontal' style={{width: 200, height:50, borderRadius: 10, padding: '10px 15px', boxSizing: 'border-box', cursor:'pointer', flexDirection: 'row-reverse', justifyContent: 'flex-end'}}>
                                             <p className="t45 title" style={{marginLeft: 15, fontSize: 15}}>{dueDate.toLocaleDateString()}</p>
                                             <CgCalendarDates size={24} className='themeColor' />
                                         </div>
@@ -796,9 +823,12 @@ const NewProject = ({history}) => {
             {/* ======================================================================================================================= */}
 
             <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={smallModal}>
-                <img src={gear} width={80} height={80} style={{marginTop: 30}} className="rotate"/>
-                <p className="t4 title" style={{marginTop: 40}}>Creating your project...</p>
-                <p className="t5 sub" style={{marginTop: 20, marginBottom: 20}}>This will take a few moments to complete</p>
+                <div className="modalDiv">
+                    <img src={gear} width={90} height={90} style={{marginTop: 20}} className="rotate"/>
+                    <p className="t3 title" style={{marginTop: 30}}>Creating your project...</p>
+                    <p className="t45 sub" style={{marginTop: 20, marginBottom: 30}}>This will take a few moments to complete</p>
+                </div>
+                
             </Modal>
 
         </div>

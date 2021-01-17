@@ -6,6 +6,7 @@ import {SiGraphql} from 'react-icons/si'
 import randomUser from '../assets/user.png'
 
 import '../css/sidebar.css'
+import { useAuth } from './AuthProvider'
 import { GetCurrentPath, IconButton, MenuItem } from './Common'
 import { useTheme } from './ThemeProvider'
 
@@ -38,6 +39,7 @@ const Sidebar = () => {
 	const [isHovering, setIsHovering] = useState(false)
 
 	const {theme, setTheme} = useTheme()
+	const {isAuthenticated, setAuth} = useAuth()
 
 
 
@@ -52,7 +54,12 @@ const Sidebar = () => {
 
     return (
         <React.Fragment>
-            <div className="sidebar-container" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
+			<div className="sidebar-container" 
+				onMouseEnter={() => setTimeout(() => {
+					setIsHovering(true)
+				}, 200)} 
+				onMouseLeave={() => setIsHovering(false)}
+			>
                 
 				<div className="app-logo-div">
 					<div style={{display:'flex', alignItems: 'center', justifyContent: 'center'}}>
@@ -73,7 +80,7 @@ const Sidebar = () => {
 						<img className="background" src={randomUser} style={{width: 40, height: 40, marginLeft: 0, marginTop: 0}}/>
 				</div>
 				
-				<div style={{display: "flex", flexDirection: "column", alignItems: "flex-start", position: 'absolute', bottom: 20, left: 100}}>
+				<div style={{display: isHovering ? "flex" : 'none', flexDirection: "column", alignItems: "flex-start", position: 'absolute', bottom: 20, left: 100}}>
 						<p className="t445 title">Name Surname</p>
 						<p className="t5 sub">Designation</p>	
 				</div>
